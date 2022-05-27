@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class baslangic {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int mat,fiz,kim,tr,tar,muz;
+        float ort;
+        System.out.print("Enter math note:");
+        mat= inp.nextInt();
+        System.out.print("Enter fizik note:");
+        fiz= inp.nextInt();
+        System.out.print("Enter kimya note:");
+        kim= inp.nextInt();
+        System.out.print("Enter turkce note:");
+        tr= inp.nextInt();
+        System.out.print("Enter tarih note:");
+        tar= inp.nextInt();
+        System.out.print("Enter muzik note:");
+        muz= inp.nextInt();
+        ort=(mat+fiz+kim+tr+tar+muz)/6;
+        System.out.println("ortalama="+ort);
+        String a;
+        a=(ort>=60)?"Sinifi gecti":"Sinifta kaldi";
+        System.out.println("Sonuc:"+a);
+    }
+}
