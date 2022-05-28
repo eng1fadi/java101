@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int say;
+        float kdv,son;
+        System.out.print("fiyat giriniz:");
+        say= inp.nextInt();
+
+        kdv=(say<=1000)?0.18f:0.08f;
+        son=say+kdv*say;
+        System.out.println("KDVsiz fiyat: "+say);
+        System.out.println("KDVli fiyat: "+son);
+        System.out.println("KDV tutari: "+kdv*say);
+    }
+}
