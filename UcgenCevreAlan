@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int ken1,ken2;
+        double hipo,cev,alan;
+        System.out.print("1. dik kenari giriniz:");
+        ken1= inp.nextInt();
+        System.out.print("2. dik kenari giriniz:");
+        ken2= inp.nextInt();
+        hipo=Math.sqrt(ken1*ken1+ken2*ken2);
+        cev=ken1+ken2+hipo;
+        alan=0.5*cev*(0.5*cev-ken1)*(0.5*cev-ken2)*(0.5*cev-hipo);
+
+        System.out.println("hipotenus= "+hipo);
+        System.out.println("cevre= "+cev);
+        System.out.println("alan= "+Math.sqrt(alan));
+    }
+}
