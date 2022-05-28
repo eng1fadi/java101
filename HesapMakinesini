@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int n1, n2, sel;
+        double bo;
+        System.out.print("ilk sayiyi giriniz: ");
+        n1 = inp.nextInt();
+        System.out.print("Ikinci sayiyi giriniz: ");
+        n2 = inp.nextInt();
+        System.out.print("1-Toplama\n2-Cikarma\n3-Carpma\n4-Bolme: ");
+        sel = inp.nextInt();
+        bo=(n1/n2);
+        switch (sel) {
+            case 1:
+                System.out.print(n1 + "+" + n2 + "=" + (n1 + n2));
+                break;
+            case 2:
+                System.out.print(n1 + "-" + n2 + "=" + (n1 - n2));
+                break;
+            case 3:
+                System.out.print(n1 + "*" + n2 + "=" + (n1 * n2));
+                break;
+            case 4:
+                switch (n2){
+                    case 0:
+                        System.out.print("0 sayiya bolunmez");
+                        break;
+                    default:
+                        System.out.print(n1 + "/" + n2 + "=" +bo);
+                        break;
+                }
+            default:
+                System.out.println("Ynlis girdiniz");
+                break;
+        }
+    }
+}
