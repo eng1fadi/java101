@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        String user,pass,sec,ps1;
+        System.out.print("Lutfen kullanici adi giriniz: ");
+        user = inp.nextLine();
+        System.out.print("Lutfen sifre giriniz: ");
+        pass = inp.nextLine();
+        if (user.equals("patika")){
+            if (pass.equals("java123"))
+                System.out.println("Giris yaptiniz");
+            else
+                System.out.print("Sifre hatali, sifre sifilamak ister misiniz?y/n: ");
+                sec = inp.nextLine();
+                if (sec.equals("y"))
+                    System.out.print("Yeni sifre giriniz: ");
+                    ps1=inp.nextLine();
+                    if (ps1.equals(pass))
+                        System.out.println("Şifre oluşturulamadı, lütfen başka şifre giriniz.");
+                    else
+                        System.out.println("Şifre oluşturuldu");
+        } else
+            System.out.println("Kullanici adi hatali");
+
+    }
+}
