@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int mat,fiz,tr,kim,muz,a=0;
+        float ort=0f;
+        String z;
+        System.out.print("Enter math note:");
+        mat= inp.nextInt();
+        System.out.print("Enter fizik note:");
+        fiz= inp.nextInt();
+        System.out.print("Enter turkce note:");
+        tr= inp.nextInt();
+        System.out.print("Enter kimya note:");
+        kim= inp.nextInt();
+        System.out.print("Enter muzik note:");
+        muz= inp.nextInt();
+        if (mat>=0 && mat<=100){
+            ort+=mat;
+            a+=1;
+        }if (fiz>=0 && fiz<=100) {
+            ort += fiz;
+            a += 1;
+        }if (tr>=0 && tr<=100) {
+            ort += tr;
+            a += 1;
+        }if (kim>=0 && kim<=100) {
+            ort += kim;
+            a += 1;
+        }if (muz>=0 && muz<=100){
+            ort+=muz;
+            a+=1;
+        }
+        z=(ort/a>=55)?"Gecti":"Kaldi";
+        System.out.println("ortalama="+ort/a+" "+z);
+    }
+}
