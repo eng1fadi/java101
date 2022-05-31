@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int m;
+        String a = "";
+        System.out.print("Doğum Yılınızı Giriniz : ");
+        m = inp.nextInt();
+        switch (m%12){
+            case 0:
+                a="Maymun";break;
+            case 1:
+                a="Horoz";break;
+            case 2:
+                a="Kopek";break;
+            case 3:
+                a="Domuz";break;
+            case 4:
+                a="Fare";break;
+            case 5:
+                a="Okuz";break;
+            case 6:
+                a="Kaplan";break;
+            case 7:
+                a="Tavsan";break;
+            case 8:
+                a="Ejderha";break;
+            case 9:
+                a="Yilan";break;
+            case 10:
+                a="At";break;
+            case 11:
+                a="Koyun";break;
+        }
+        System.out.print("Çin Zodyağı Burcunuz : "+a);
+    }
+}
