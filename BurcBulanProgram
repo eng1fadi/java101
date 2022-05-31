@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int mon, day;
+        String a = "";
+        System.out.print("ay giriniz: ");
+        mon = inp.nextInt();
+        System.out.print("gun giriniz: ");
+        day = inp.nextInt();
+        if (mon == 3 && day >= 21 && day <= 31 || mon == 4 && day > 0 && day <= 20)
+            a="Koc Burcu";
+        else if (mon == 4 && day >= 21 && day <= 30 || mon == 5 && day > 0 && day <= 21)
+            a="Boga Burcu";
+        else if (mon == 5 && day >= 22 && day <= 31 || mon == 6 && day > 0 && day <= 22)
+            a="Ikizler Burcu";
+        else if (mon == 6 && day >= 23 && day <= 30 || mon == 7 && day > 0 && day <= 22)
+            a="Yengec Burcu";
+        else if (mon == 7 && day >= 23 && day <= 31 || mon == 8 && day > 0 && day <= 22)
+            a="Aslan Burcu";
+        else if (mon == 8 && day >= 23 && day <= 30 || mon == 9 && day > 0 && day <= 22)
+            a="Basak Burcu";
+        else if (mon == 9 && day >= 23 && day <= 31 || mon == 10 && day > 0 && day <= 22)
+            a="Terazi Burcu";
+        else if (mon == 10 && day >= 23 && day <= 30 || mon == 11 && day > 0 && day <= 21)
+            a="Akrep Burcu";
+        else if (mon == 11 && day >= 22 && day <= 31 || mon == 12 && day > 0 && day <= 21)
+            a="Yay Burcu";
+        else if (mon == 12 && day >= 22 && day <= 30 || mon == 1 && day > 0 && day <= 21)
+            a="Oglak Burcu";
+        else if (mon == 1 && day >= 22 && day <= 31 || mon == 2 && day > 0 && day <= 19)
+            a="Kova Burcu";
+        else if (mon == 2 && day >= 20 && day <= 28 || mon == 3 && day > 0 && day <= 20)
+            a="Balik Burcu";
+        else
+            a="yanlis girdiniz";
+        System.out.println(a);
+    }
+}
