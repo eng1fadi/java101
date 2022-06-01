@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int y,sum=0;
+        do {
+            System.out.print("Sayi giriniz: ");
+            y=inp.nextInt();
+        }while (y%2==0);
+        for (int i=0;i<=y;i++)
+            if (i%2==0||i%4==0){
+                sum=sum+i;
+            }
+        System.out.print("2 ve 4'e tam bölünen sayıların toplamasi="+sum);
+    }
+}
