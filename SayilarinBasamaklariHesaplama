@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int n,s=0;
+        System.out.print("sayi giriniz: ");
+        n=inp.nextInt();
+        for (int i=10;i<=(n*10);i*=10) {
+            s=(n%i)/(i/10)+s;
+        }
+        System.out.println(n + "= " + s);
+    }
+}
