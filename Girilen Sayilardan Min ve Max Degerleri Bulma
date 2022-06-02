@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        int s,b,k,m;
+        System.out.print("Kac sayi gireceksiniz?: ");
+        s=inp.nextInt();
+        System.out.print("1. sayi: ");
+        m=inp.nextInt();
+        b=k=m;
+        for(int i=1;i<s;i++){
+            System.out.print((i+1)+". sayi: ");
+            m=inp.nextInt();
+            if(b<m){
+                b=m;
+            }
+            if(k>m){
+                k=m;
+            }
+        }
+        System.out.println("En kucuk sayi: "+k);
+        System.out.println("En buyuk sayi: "+b);
+    }
+}
