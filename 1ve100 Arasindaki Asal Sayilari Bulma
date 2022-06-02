@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        for(int i=2;i<=100;i++){
+            Boolean a=false;
+            for(int j=2;j<i;j++){
+                if((i%j)==0){
+                    a=true;
+                    break;
+                }
+            }
+            if (a==false)
+                System.out.print(i + " ");
+        }
+    }
+}
