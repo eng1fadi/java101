@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class aaaa {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        System.out.print("N1 sayisini giriniz: ");
+        int n1=inp.nextInt();
+        System.out.print("N2 sayisini giriniz: ");
+        int n2=inp.nextInt();
+        int ebob=1,k=n1,ekok,i=1;
+        while (i <= n1 && i <= n2){
+            if (n1%i==0&&n2%i==0){
+                //System.out.println(i);
+                ebob=i;
+            }
+            i++;
+        }
+        ekok = (n1 * n2) / ebob;
+        System.out.println("EBOB= "+ebob);
+        System.out.print("EKOK= "+ekok);
+
+    }
+}
