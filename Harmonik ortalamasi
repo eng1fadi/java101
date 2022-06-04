@@ -1,0 +1,19 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int a;
+        double sum=0.0;
+        System.out.print("enter no: ");
+        a=inp.nextInt();
+        int[] num = new int[a];
+        for(int i=0;i<a;i++){
+            System.out.print((i+1)+".no:");
+            num[i]=inp.nextInt();
+            sum=sum+(1.0/num[i]);
+        }
+        double s=sum/a;
+        System.out.print("Harmonik ortalamasi= "+s);
+    }
+}
