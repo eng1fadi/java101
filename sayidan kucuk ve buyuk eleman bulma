@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int a;
+        int[] liste = {15,12,788,1,-1,-778,2,0};
+        int[] lst=Arrays.copyOf(liste,liste.length);
+        Arrays.sort(lst);
+        System.out.println("dizi="+Arrays.toString(liste));
+        System.out.print("Girilen sayi: ");
+        a=inp.nextInt();
+        for (int i:lst){
+            if (i>=a&&a<=lst[0]) {
+                System.out.println("Girilen sayidan buyuk en yakin sayi : " + lst[0]);
+                System.out.println("Girilen sayidan kucuk en yakin sayi yok");
+                break;
+            } else if (i>=a&&a>lst[0]) {
+                System.out.println("Girilen sayidan buyuk en yakin sayi : " + i);
+                int k = Arrays.binarySearch(lst, i);
+                System.out.println("Girilen sayidan kucuk en yakin sayi : " + lst[k - 1]);
+                break;
+            } else if (a>=i&&i==lst[lst.length-1]){
+                System.out.println("Girilen sayidan buyuk en yakin sayi yok ");
+                System.out.println("Girilen sayidan kucuk en yakin sayi : "+lst[lst.length-1]);
+                break;
+            }
+        }
+    }
+}
