@@ -1,0 +1,36 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        System.out.print("dizinin boyutu n: ");
+        int a=inp.nextInt();
+        int[] lst=new int[a];
+        for (int i=0;i<a;i++){
+            System.out.print((i+1)+".eleman: ");
+            lst[i]=inp.nextInt();
+        }
+        int count1=0;
+        int[] lst1=new int[lst.length];
+        for(int i=0;i< lst.length;i++) {
+            int count=1;
+            for (int j=0;j<lst.length;j++) {
+                if (lst[i]==lst[j] && i != j) {
+                    count++;
+                }
+            }
+            lst1[i]=count;
+        }
+        System.out.println("dizi="+Arrays.toString(lst));
+        for (int i=0;i< lst.length;i++){
+            boolean s=false;
+            for(int j=0;j<i-1;j++){
+                if(lst[j]==lst[i])
+                    s=true;
+            }
+            if (s==true)
+                continue;
+            System.out.println(lst[i]+" sayisi "+lst1[i]+" kere tekrar edildi");
+        }
+    }
+}
