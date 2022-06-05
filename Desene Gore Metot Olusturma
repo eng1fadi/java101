@@ -1,0 +1,32 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+    public static void a1(int k,boolean q,int r){
+        if (k<-4&&q==false) {
+            q = true;
+            k+=10;
+            a1(k,q,r);
+            return;
+        }
+        else if (q==true) {
+            if (k<=r){
+                System.out.print(k + " ");
+                k = k + 5;
+                a1(k,q,r);
+            }
+            else
+                return;
+        } else {
+            System.out.print(k+" ");
+            k = k - 5;
+            a1(k,q,r);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        int u=inp.nextInt();
+        int r=u;
+        boolean q=false;
+        a1(u,q,r);
+    }
+}
