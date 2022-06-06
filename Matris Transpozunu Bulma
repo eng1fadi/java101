@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        System.out.print("Enter rows no: ");
+        int a= inp.nextInt();
+        System.out.print("Enter columns no: ");
+        int b= inp.nextInt();
+        int[][] lst=new int[a][b];
+        for (int i=0;i<a;i++){
+            for (int j=0;j<b;j++) {
+                System.out.print((i + 1) + ".row," + (j + 1) + ".element: ");
+                lst[i][j] = inp.nextInt();
+            }
+        }
+        System.out.println("Matrix: ");
+        for (int i=0;i<a;i++) {
+            for (int j = 0; j < b; j++) {
+                System.out.print(lst[i][j]+"  ");
+            }
+            System.out.println();
+        }
+        System.out.println("Transpoze: ");
+        for (int i=0;i<b;i++) {
+            for (int j = 0; j < a; j++) {
+                System.out.print(lst[j][i] + "  ");
+            }
+            System.out.println();
+        }
+    }
+}
