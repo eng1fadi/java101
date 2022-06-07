@@ -1,0 +1,149 @@
+public class Course {
+        Teacher courseTeacher;
+        String name;
+        String code;
+        String prefix;
+        int note;
+    public Course(String name, String code, String prefix) {
+            this.name = name;
+            this.code = code;
+            this.prefix = prefix;
+            this.note = 0;
+        }
+        public void addTeacher(Teacher teacher) {
+            if (this.prefix.equals(teacher.branch)) {
+                this.courseTeacher= courseTeacher;
+                System.out.println("İşlem başarılı");
+            } else {
+                System.out.println(teacher.name + " Akademisyeni bu dersi veremez.");
+            }
+        }
+        public void printTeacherInfo() {
+            if (courseTeacher != null) {
+                System.out.println(this.name + " dersinin Akademisyeni : " + courseTeacher.name);
+            } else {
+                System.out.println(this.name + " dersine Akademisyen atanmamıştır.");
+            }
+        }
+}
+//==========================================================
+public class Student {
+    String name,stuNo;
+    int classes;
+    Course mat;
+    Course Smat;
+    Course Etmat;
+    Course fizik;
+    Course Sfizik;
+    Course Etfizik;
+    Course kimya;
+    Course Skimya;
+    Course Etkimya;
+    double avarage;
+    boolean isPass;
+    Student(String name, int classes, String stuNo, Course mat,Course Smat,Course Etmat,Course fizik,Course Sfizik,Course Etfizik,Course kimya,Course Skimya,Course Etkimya) {
+        this.name = name;
+        this.classes = classes;
+        this.stuNo = stuNo;
+        this.mat = mat;
+        this.Smat=Smat;
+        this.Etmat=Etmat;
+        this.fizik = fizik;
+        this.Sfizik=Sfizik;
+        this.Etfizik=Etfizik;
+        this.kimya = kimya;
+        this.Skimya=Skimya;
+        this.Etkimya=Etkimya;
+        calcAvarage();
+        this.isPass = false;
+    }
+    public void addBulkExamNote(int mat, int Smat, int Etmat,int fizik, int Sfizik, int Etfizik,int kimya,int Skimya,int Etkimya) {
+
+        if ((mat >= 0 && mat <= 100)&&(Smat >= 0 && Smat <= 100)&&(Etmat >= 0 && Etmat <= 100)) {
+            this.mat.note = (mat*(100-Etmat)/100)+((Smat*Etmat)/100);
+        }
+        if ((fizik >= 0 && fizik <= 100)&&(Sfizik >= 0 && Sfizik <= 100)&&(Etfizik >= 0 && Etfizik <= 100)) {
+            this.fizik.note = (fizik*(100-Etfizik)/100)+((Sfizik*Etfizik)/100);
+        }
+        if ((kimya >= 0 && kimya <= 100)&&(Skimya >= 0 && Skimya <= 100)&&(Etkimya >= 0 && Etkimya <= 100)) {
+            this.kimya.note = (kimya*(100-Etkimya)/100)+((Skimya*Etkimya)/100);
+        }
+    }
+    public void isPass() {
+        if (this.mat.note == 0 || this.fizik.note == 0 || this.kimya.note == 0) {
+            System.out.println("Notlar tam olarak girilmemiş");
+        } else {
+            this.isPass = isCheckPass();
+            printNote();
+            System.out.println("Ortalama : " + this.avarage);
+            if (this.isPass) {
+                System.out.println("Sınıfı Geçti. ");
+            } else {
+                System.out.println("Sınıfta Kaldı.");
+            }
+        }
+    }
+    public void calcAvarage() {
+        this.avarage = (this.fizik.note + this.kimya.note + this.mat.note) / 3;
+    }
+    public boolean isCheckPass() {
+        calcAvarage();
+        return this.avarage > 55;
+    }
+    public void printNote(){
+        System.out.println("=========================");
+        System.out.println("Öğrenci : " + this.name);
+        System.out.println("Matematik Notu : " + this.mat.note);
+        System.out.println("Fizik Notu : " + this.fizik.note);
+        System.out.println("Kimya Notu : " + this.kimya.note);
+    }
+}
+//=================================================================================
+public class Teacher {
+    String name;
+    String mpno;
+    String branch;
+    Teacher(String name, String branch, String mpno) {
+        this.name = name;
+        this.mpno = mpno;
+        this.branch = branch;
+    }
+    void print(){
+        System.out.println("Adi: "+this.name);
+        System.out.println("Telefonu: "+this.mpno);
+        System.out.println("Bolumu: "+this.branch);
+    }
+}
+//=====================================================================================
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        Course mat = new Course("Matematik","MAT101","MAT");
+        Course Smat = new Course("Oral Matematik","MAT101","MAT");
+        Course Etmat = new Course("Percentage Matematik","MAT101","MAT");
+        Course fizik = new Course("Fizik", "FZK101", "FZK");
+        Course Sfizik = new Course("Oral Fizik", "FZK101", "FZK");
+        Course Etfizik = new Course("Percentage Fizik", "FZK101", "FZK");
+        Course kimya = new Course("Kimya", "KMY101", "KMY");
+        Course Skimya = new Course("Oral Kimya", "KMY101", "KMY");
+        Course Etkimya = new Course("Percentage Kimya", "KMY101", "KMY");
+
+        Teacher t1 = new Teacher("Mahmut Hoca", "MAT", "432");
+        Teacher t2 = new Teacher("Fatma Ayşe", "FZK", "543");
+        Teacher t3 = new Teacher("Ali Veli", "KMY", "547");
+        mat.printTeacherInfo();
+        mat.addTeacher(t1);
+        fizik.addTeacher(t2);
+        kimya.addTeacher(t3);
+        Student s1 = new Student("İnek Şaban", 4, "140144015", mat,Smat,Etmat,fizik, Sfizik,Etfizik,kimya,Skimya,Etkimya);
+        s1.addBulkExamNote(50,20,30,54,66,20,70,90,25);
+        s1.isPass();
+        Student s2 = new Student("Güdük Necmi", 4, "2211133", mat,Smat,Etmat,fizik, Sfizik,Etfizik,kimya,Skimya,Etkimya);
+        s2.addBulkExamNote(100,90,30,80,80,20,60,100,25);
+        s2.isPass();
+        Student s3 = new Student("Hayta İsmail", 4, "221121312", mat,Smat,Etmat,fizik, Sfizik,Etfizik,kimya,Skimya,Etkimya);
+        s3.addBulkExamNote(50,40,30,40,50,20,20,60,25);
+        s3.isPass();
+    }
+}
