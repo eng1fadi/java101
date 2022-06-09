@@ -1,0 +1,56 @@
+public class Employee {
+
+        String name;
+        int salary;
+        int workHours;
+        int hireYear;
+
+        public Employee(String name,int salary,int workHours,int hireYear){
+            this.name=name;
+            this.salary=salary;
+            this.workHours=workHours;
+            this.hireYear=hireYear;
+        }
+        public double tax(int salary){
+            int ta;
+            if(salary<=1000){
+                return 0;
+            }
+            else{
+                return  (3*salary/100);
+            }
+        }
+        public double bonus(int workHours){
+            if(workHours>40){
+                return (workHours-40)*30;
+            }
+            return 0;
+        }
+        public double raiseSalary(int hireYear){
+            double s=this.salary;
+            if((2022-hireYear)<10){
+                return s*0.05;
+            }
+            else if((2022-hireYear)>9&&(2022-hireYear)<20){
+                return s*0.1;
+            }
+            else {
+                return s * 0.15;
+            }
+        }
+        public void tostring(){
+
+            System.out.println(tax(salary));
+            bonus(workHours);
+            raiseSalary(hireYear);
+            System.out.println("Adi : "+this.name);
+            System.out.println("Maasi : "+this.salary);
+            System.out.println("Calisma Saati :  : "+this.workHours);
+            System.out.println("Baslangic yili : "+this.hireYear);
+            System.out.println("Vergi : "+tax(salary));
+            System.out.println("Bonus : "+bonus(workHours));
+            System.out.println("Maas Artisi : "+raiseSalary(hireYear));
+            System.out.println("Vergi ve bonuslar ile birlikte maas : "+(this.salary+bonus(workHours)-tax(salary)));
+            System.out.println("Toplam maas : "+(this.salary+raiseSalary(hireYear)));
+        }
+}
