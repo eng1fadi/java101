@@ -1,0 +1,77 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.util.random.*;
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner inp=new Scanner(System.in);
+        Random rand=new Random();
+        System.out.println("************* Mayin Tarlasinin *************");
+
+        System.out.println("Mayin Tarlasinin boyutlarini giriniz: ");
+        System.out.print("Satir: ");
+        int x=inp.nextInt();
+        System.out.print("Sutun: ");
+        int y=inp.nextInt();
+        int[][] mayin=new int[x][y];
+        int mayinsayi=(x*y/4);
+        for (int i=0;i<x;i++)
+            for(int j=0;j<y;j++)
+                mayin[i][j]=-2;
+
+
+        for(int i=0;i<mayinsayi;i++){
+
+            int a= rand.nextInt(x);
+            int b=rand.nextInt(y);
+            if(mayin[a][b]==-1) {
+                i--;
+                continue;
+            }
+            mayin[a][b]=-1;
+        }
+        int r1,r2;
+        int count=0;
+        do{
+            System.out.println("Satir ve sutun secin : ");
+            System.out.print("satir: ");
+            r1=inp.nextInt();
+            System.out.print("sutun: ");
+            r2=inp.nextInt();
+
+            if (mayin[r1][r2]==-1) {
+                System.out.print(" Game o_o over!");
+                break;
+            }
+            int sec=0;
+            for (int i=r1-1;i<=(r1+1);i++){
+                for (int j=r2-1;j<=(r2+1);j++){
+
+                    if (i<0||i>=x||j<0||j>=y||i==j) {
+                        continue;
+                    }
+                    if (mayin[i][j]==-1) {
+                        sec += 1;
+                    }
+                }
+            }
+            mayin[r1][r2]=sec;
+            for (int i=0;i<x;i++) {
+                for (int j = 0; j < y; j++) {
+                    if (mayin[i][j]==-2||mayin[i][j]==-1){
+                        System.out.print("-\t");
+                    }
+                    else {
+                        System.out.print(mayin[i][j]+"\t");
+                    }
+                }
+                System.out.print("\n");
+            }
+            System.out.println("===========================================");
+            count++;
+        }while (((x*y)-mayinsayi)>count);
+        if (count==(x*y)-mayinsayi){
+            System.out.println("********** You 0v0 Win **********");
+        }
+    }
+}
